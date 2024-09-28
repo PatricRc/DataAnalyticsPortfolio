@@ -29,4 +29,4 @@ elif page == "Chat Bot":
     show_project_2_page()
 
 # --- SHARED ON ALL PAGES ---
-st.sidebar.markdown("Made with ❤️ by [Sven](https://youtube.com/@codingisfun)")
+st.sidebar.markdown("Made with ❤️ by [Patricio](https://www.linkedin.com/in/patriciorioscanepa/)")
