@@ -1,40 +1,32 @@
 import streamlit as st
 
 # --- PAGE SETUP ---
-about_page = st.Page(
-    "views/about_me.py",
-    title="About Me",
-    icon=":material/account_circle:",
-    default=True,
-)
-project_1_page = st.Page(
-    "views/sales_dashboard.py",
-    title="Sales Dashboard",
-    icon=":material/bar_chart:",
-)
-project_2_page = st.Page(
-    "views/chatbot.py",
-    title="Chat Bot",
-    icon=":material/smart_toy:",
-)
+def show_about_page():
+    st.title("About Me")
+    st.write("This is the About Me page.")
+
+def show_project_1_page():
+    st.title("Sales Dashboard")
+    st.write("This is the Sales Dashboard page.")
+
+def show_project_2_page():
+    st.title("Chat Bot")
+    st.write("This is the Chat Bot page.")
 
 
-# --- NAVIGATION SETUP [WITHOUT SECTIONS] ---
-# pg = st.navigation(pages=[about_page, project_1_page, project_2_page])
-
-# --- NAVIGATION SETUP [WITH SECTIONS]---
-pg = st.navigation(
-    {
-        "Info": [about_page],
-        "Projects": [project_1_page, project_2_page],
-    }
+# --- NAVIGATION SETUP ---
+page = st.sidebar.selectbox(
+    "Navigate",
+    ("About Me", "Sales Dashboard", "Chat Bot")
 )
 
+# --- PAGE DISPLAY ---
+if page == "About Me":
+    show_about_page()
+elif page == "Sales Dashboard":
+    show_project_1_page()
+elif page == "Chat Bot":
+    show_project_2_page()
 
 # --- SHARED ON ALL PAGES ---
-#st.logo("assets/codingisfun_logo.png")
 st.sidebar.markdown("Made with ❤️ by [Sven](https://youtube.com/@codingisfun)")
-
-
-# --- RUN NAVIGATION ---
-pg.run()
